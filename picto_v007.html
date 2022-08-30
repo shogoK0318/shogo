@@ -1,0 +1,925 @@
+<!doctype html>
+<html>
+  <head>
+        <title>ピクトグラムのジェンダー実験</title>
+    <meta charset="utf-8">
+    <style>
+
+.text{
+    margin-left:40px;
+}
+
+.box select{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 200px;
+    height: 100px;
+    font-size: 300px;
+   }
+
+.box2 select{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 200px;
+    height: 100px;
+    font-size: 300px;
+   }   
+
+.pbox{
+display: flex;
+justify-content: space-around;
+padding: 5px;
+}
+
+.bbox{
+display: flex;
+justify-content: space-around;
+padding: 5px;
+}
+
+.dbox{
+display: flex;
+justify-content: space-around;
+padding: 5px;
+}
+    
+.slider {
+ box-shadow:0px 15px 40px #7E6D5766;
+ margin-bottom:10px;
+}
+
+.slider p {
+ font-size:15px;
+ font-weight:600;
+ padding-left:30px;
+ color:#7E6D57;
+}
+.slider input[type="range"] {
+ -webkit-appearance:none !important;
+ width:420px;
+ height:2px;
+ background:#7E6D57;
+ border:none;
+ outline:none;
+}
+.slider input[type="range"]::-webkit-slider-thumb {
+ -webkit-appearance:none !important;
+ width:30px;
+ height:30px;
+ background:#fcfcfc;
+ border:2px solid #7E6D57;
+ border-radius:50%;
+ cursor:pointer;
+}
+.slider input[type="range"]::-webkit-slider-thumb:hover {
+ background:#7E6D57;
+}
+
+.menshoulder{
+    margin-top:30px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+.menarmrad{
+    margin-top:50px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+.menarmlenghth{
+    margin-top:50px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+.menwaist{
+    margin-top:50px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+.menlegs{
+    margin-top:50px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+.womanshoulder{
+    margin-top:30px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+.womanarmrad{
+    margin-top:50px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+.womanarmlenghth{
+    margin-top:50px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+.womanwaist{
+    margin-top:50px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+.womanlegs{
+    margin-top:50px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+.neutralshoulder{
+    margin-top:30px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+.neutralarmrad{
+    margin-top:50px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+.neutralarmlenghth{
+    margin-top:50px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+.neutralwaist{
+    margin-top:50px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+.neutrallegs{
+    margin-top:50px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+
+
+.submit{
+    margin-top:50px;
+    margin-left:370px;
+    margin-right:20px;
+    display       : inline-block;
+  font-size     : 12pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : #000000;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 2px 2px 7px #666666;  /* 影の設定 */
+  border        : 2px solid #000000;    /* 枠の指定 */
+}
+.submit:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #000000;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
+    </style>
+
+  </head>
+
+
+  <body onLoad="meninputChange(),womaninputChange(),neutralinputChange()">
+        <form name="実験結果" action="" method="POST"　netlify>
+<div class="text">
+        <h1><font face="Arial"><br>ピクトグラムのジェンダーに関する調査<br><br></h1>
+        <h2>⬛️ 調査の目的</h2>
+        本調査は、男性や女性のどちらの性にもよらない、ニュートラルな人型ピクトグラムを提案するために実施するものです。<br>
+        本調査で得られた結果を踏まえ、ニュートラルな人型ピクトグラムの特徴を分析します。<br><br>
+
+        <h2>⬛️ 調査の内容</h2>
+        ⒈　属性調査<br>
+        ⒉　男性と思うピクトグラムの作成<br>
+        ⒊　女性と思うピクトグラムの作成<br>
+        ⒋　男性でも女性でもないピクトグラムの作成<br>
+
+        として調査を行います。<br>
+        <br>
+        ※本調査で得られた情報に関しては調査の目的のみに使用します。<br><br>
+       
+                <h2>
+                ⒈まず最初にあなたの性別と年齢を教えてください
+                </h2>
+                <div class="box">
+                        <label for="i_name">性別<br></label>
+                        <select  name="性別" required>
+                                <option value="">選択してください</option>
+                                <option value="男性">男性</option>
+                                <option value="女性">女性</option>
+                                <option value="どちらでもない">どちらでもない</option>
+                            </select>
+                    </div>
+                    <div class="box2">
+                            <label >年齢<br></label>
+                            <select  name="年齢" required>
+                                    <option value="">選択してください</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+                                            <option value="24">24</option>
+                                            <option value="25">25</option>
+                                            <option value="26">26</option>
+                                            <option value="27">27</option>
+                                            <option value="28">28</option>
+                                            <option value="29">29</option>
+                                            <option value="30">30</option>
+                                            <option value="31">31</option>
+                                            <option value="32">32</option>
+                                            <option value="33">33</option>
+                                            <option value="34">34</option>
+                                            <option value="35">35</option>
+                                            <option value="36">36</option>
+                                            <option value="37">37</option>
+                                            <option value="38">38</option>
+                                            <option value="39">39</option>
+                                            <option value="40">40</option>
+                                            <option value="41">41</option>
+                                            <option value="42">42</option>
+                                            <option value="43">43</option>
+                                            <option value="44">44</option>
+                                            <option value="45">45</option>
+                                            <option value="46">46</option>
+                                            <option value="47">47</option>
+                                            <option value="48">48</option>
+                                            <option value="49">49</option>
+                                            <option value="50">50</option>
+                                            <option value="51">51</option>
+                                            <option value="52">52</option>
+                                            <option value="53">53</option>
+                                            <option value="54">54</option>
+                                            <option value="55">55</option>
+                                            <option value="56">56</option>
+                                            <option value="57">57</option>
+                                            <option value="58">58</option>
+                                            <option value="59">59</option>
+                                            <option value="60">60</option>
+                                            <option value="61">61</option>
+                                            <option value="62">62</option>
+                                            <option value="63">63</option>
+                                            <option value="64">64</option>
+                                            <option value="65">65</option>
+                                            <option value="66">66</option>
+                                            <option value="67">67</option>
+                                            <option value="68">68</option>
+                                            <option value="69">69</option>
+                                            <option value="70">70</option>
+                                            <option value="71">71</option>
+                                            <option value="72">72</option>
+                                            <option value="73">73</option>
+                                            <option value="74">74</option>
+                                            <option value="75">75</option>
+                                            <option value="76">76</option>
+                                            <option value="77">77</option>
+                                            <option value="78">78</option>
+                                            <option value="79">79</option>
+                                            <option value="80">80</option>
+                                            <option value="81">81</option>
+                                            <option value="82">82</option>
+                                            <option value="83">83</option>
+                                            <option value="84">84</option>
+                                            <option value="85">85</option>
+                                            <option value="86">86</option>
+                                            <option value="87">87</option>
+                                            <option value="88">88</option>
+                                            <option value="89">89</option>
+                                            <option value="90">90</option>
+                                            <option value="91">91</option>
+                                            <option value="92">92</option>
+                                            <option value="93">93</option>
+                                            <option value="94">94</option>
+                                            <option value="95">95</option>
+                                            <option value="96">96</option>
+                                            <option value="97">97</option>
+                                            <option value="98">98</option>
+                                            <option value="99">99</option>
+                                            </select>　歳
+                                            
+                                    <option value="どちらでもない">どちらでもない</option>
+                                </select>
+                        </div>
+
+                <h2>⒉あなたが男性と感じるような人を表現してください。</h2>
+            </div>
+      <div class="pbox">
+           
+      <div class="cbox boxA">
+        <canvas id="menpicto" width="800" height="820" style="background-color:rgb(236, 253, 255);">
+        </canvas>
+        </div>
+
+        <div class="slider">
+
+        <div class="menshoulder">
+        <p> 肩幅  <span id="range1Value"></span></p>
+        <label><input   name="男性の肩幅" type="range" min="-50" max="50" step="1" value="0" id="menshoulder" >
+        </label>
+        </div>
+
+        <div class="menarmrad">
+        <p> 腕の角度  <span id="range2Value"></span></p>
+        <label><input  name="男性の腕の角度" type="range" min="-25" max="50" step="1" value="0" id="menarmrad" ></label>        
+        </div>
+
+        <div class="menarmlenghth">
+        <p> 腕の長さ  <span id="range5Value"></span></p>
+        <label><input name="男性の腕の長さ" type="range" min="0.5" max="1.5" step="0.01" value="1" id="menarmlenghth" ></label>        
+        </div>
+
+        <div class="menwaist">
+        <p> 腰の幅  <span id="range3Value"></span></p>
+        <label><input name="男性の腰の幅" type="range" min="-50" max="50" step="1" value="0" id="menwaist" ></label>
+        </div>   
+
+        <div class="menlegs">
+        <p> 足の角度 <span id="range4Value"></span></p>
+        <label><input name="男性の足の角度" type="range" min="-80" max="80" step="1" value="0" id="menlegs" ></label>
+        </div>  
+            
+        <div >
+            <input value="リセット" class="submit" id="menreset"/>
+        </div>  
+
+
+        </div>  	
+    </div>
+    <h2>⒉あなたが女性と感じるような人を表現してください。</h2>
+    <div class="bbox">
+           
+            <div class="cbox boxA">
+              <canvas id="womanpicto" width="800" height="820" style="background-color:rgb(236, 253, 255);">
+              </canvas>
+              </div>
+      
+              <div class="slider">
+      
+              <div class="womanshoulder">
+              <p> 肩幅  <span id="range1Value"></span></p>
+              <label><input   name="女性の肩幅" type="range" min="-50" max="50" step="1" value="0" id="womanshoulder" >
+              </label>
+              </div>
+      
+              <div class="womanarmrad">
+              <p> 腕の角度  <span id="range2Value"></span></p>
+              <label><input  name="女性の腕の角度" type="range" min="-25" max="50" step="1" value="0" id="womanarmrad" ></label>        
+              </div>
+      
+              <div class="womanarmlenghth">
+              <p> 腕の長さ  <span id="range5Value"></span></p>
+              <label><input name="女性の腕の長さ" type="range" min="0.5" max="1.5" step="0.01" value="1" id="womanarmlenghth" ></label>        
+              </div>
+      
+              <div class="womanwaist">
+              <p> 腰の幅  <span id="range3Value"></span></p>
+              <label><input name="女性の腰の幅" type="range" min="-50" max="50" step="1" value="0" id="womanwaist" ></label>
+              </div>   
+      
+              <div class="womanlegs">
+              <p> 足の角度 <span id="range4Value"></span></p>
+              <label><input name="女性の足の角度" type="range" min="-80" max="80" step="1" value="0" id="womanlegs" ></label>
+              </div>  
+                  
+              <div >
+                  <input value="リセット" class="submit" id="womanreset"/>
+              </div>  
+      
+      
+              </div>  	
+          </div>
+
+        </div>  	
+    </div>
+    <h2>3あなたが女性でも男性でもないと感じるような人を表現してください。</h2>
+    <div class="dbox">
+           
+            <div class="cbox boxA">
+              <canvas id="neutralpicto" width="800" height="820" style="background-color:rgb(236, 253, 255);">
+              </canvas>
+              </div>
+      
+              <div class="slider">
+      
+              <div class="neutralshoulder">
+              <p> 肩幅  <span id="range1Value"></span></p>
+              <label><input   name="男性でも女性でもない人の肩幅" type="range" min="-50" max="50" step="1" value="0" id="neutralshoulder" >
+              </label>
+              </div>
+      
+              <div class="neutralarmrad">
+              <p> 腕の角度  <span id="range2Value"></span></p>
+              <label><input  name="男性でも女性でもない人の腕の角度" type="range" min="-25" max="50" step="1" value="0" id="neutralarmrad" ></label>        
+              </div>
+      
+              <div class="neutralarmlenghth">
+              <p> 腕の長さ  <span id="range5Value"></span></p>
+              <label><input name="男性でも女性でもない人の腕の長さ" type="range" min="0.5" max="1.5" step="0.01" value="1" id="neutralarmlenghth" ></label>        
+              </div>
+      
+              <div class="neutralwaist">
+              <p> 腰の幅  <span id="range3Value"></span></p>
+              <label><input name="男性でも女性でもない人の腰の幅" type="range" min="-50" max="50" step="1" value="0" id="neutralwaist" ></label>
+              </div>   
+      
+              <div class="neutrallegs">
+              <p> 足の角度 <span id="range4Value"></span></p>
+              <label><input name="男性でも女性でもない人の足の角度" type="range" min="-80" max="80" step="1" value="0" id="neutrallegs" ></label>
+              </div>  
+                  
+              <div >
+                  <input value="リセット" class="submit" id="neutralreset"/>
+              </div>  
+      
+              
+      
+              </div>  	
+          </div>
+
+          <div >
+                <input type="submit" value="送信" class="submit"/>
+                </div>  
+    </form>
+
+        
+        
+       <script type="text/javascript">
+
+
+    
+    let menshoulder = document.getElementById('menshoulder');
+    let menarmrad = document.getElementById('menarmrad');
+    let menwaist = document.getElementById('menwaist');
+    let menlegs = document.getElementById('menlegs');    
+    let menarmlenghth = document.getElementById('menarmlenghth'); 
+
+    let womanshoulder = document.getElementById('womanshoulder');
+    let womanarmrad = document.getElementById('womanarmrad');
+    let womanwaist = document.getElementById('womanwaist');
+    let womanlegs = document.getElementById('womanlegs');    
+    let womanarmlenghth = document.getElementById('womanarmlenghth'); 
+
+    let neutralshoulder = document.getElementById('neutralshoulder');
+    let neutralarmrad = document.getElementById('neutralarmrad');
+    let neutralwaist = document.getElementById('neutralwaist');
+    let neutrallegs = document.getElementById('neutrallegs');    
+    let neutralarmlenghth = document.getElementById('neutralarmlenghth');    
+	
+	/*追加*/let menreset = document.getElementById('menreset');    
+    
+    menshoulder.addEventListener('input', meninputChange);
+    menarmrad.addEventListener('input', meninputChange);
+    menwaist.addEventListener('input', meninputChange);
+    menlegs.addEventListener('input', meninputChange);
+    menarmlenghth.addEventListener('input', meninputChange);
+		   
+    /*追加：リセットボタンclick時にリセット用のfunctionを呼び出し*/
+	menreset.addEventListener('click', menResetValue);
+	
+		   
+	/*追加：リセットボタン押下時に数値をリセットしてinputChangeを呼び出し*/
+	function menResetValue(){
+		
+		/*ここ数値を直接代入して初期化してるけどもっといいやり方ある気がする*/
+		menshoulder.value = 0;
+     	menarmrad.value = 0;
+     	menwaist.value =0;
+     	menlegs.value = 0;    
+     	menarmlenghth.value = 1;  
+		
+         meninputChange();
+		
+	}	 
+	/*追加ここまで*/
+
+    /*追加*/let womanreset = document.getElementById('womanreset');    
+    
+    womanshoulder.addEventListener('input', womaninputChange);
+    womanarmrad.addEventListener('input', womaninputChange);
+    womanwaist.addEventListener('input', womaninputChange);
+    womanlegs.addEventListener('input', womaninputChange);
+    womanarmlenghth.addEventListener('input', womaninputChange);
+		   
+    /*追加：リセットボタンclick時にリセット用のfunctionを呼び出し*/
+	womanreset.addEventListener('click', womanResetValue);
+	
+		   
+	/*追加：リセットボタン押下時に数値をリセットしてinputChangeを呼び出し*/
+	function womanResetValue(){
+		
+		/*ここ数値を直接代入して初期化してるけどもっといいやり方ある気がする*/
+		womanshoulder.value = 0;
+        womanarmrad.value = 0;
+        womanwaist.value =0;
+        womanlegs.value = 0;    
+        womanarmlenghth.value = 1;  
+		
+        womaninputChange();
+		
+	}	 
+
+     let neutralreset = document.getElementById('neutralreset');    
+    
+     neutralshoulder.addEventListener('input', neutralinputChange);
+     neutralarmrad.addEventListener('input', neutralinputChange);
+     neutralwaist.addEventListener('input', neutralinputChange);
+     neutrallegs.addEventListener('input', neutralinputChange);
+     neutralarmlenghth.addEventListener('input', neutralinputChange);
+		   
+    /*追加：リセットボタンclick時にリセット用のfunctionを呼び出し*/
+	neutralreset.addEventListener('click', neutralResetValue);
+	
+		   
+	/*追加：リセットボタン押下時に数値をリセットしてinputChangeを呼び出し*/
+	function neutralResetValue(){
+		
+		/*ここ数値を直接代入して初期化してるけどもっといいやり方ある気がする*/
+		neutralshoulder.value = 0;
+        neutralarmrad.value = 0;
+        neutralwaist.value =0;
+        neutrallegs.value = 0;    
+        neutralarmlenghth.value = 1;  
+		
+        neutralinputChange();
+		
+	}	 
+
+
+            function meninputChange(/*canpasid,shouluder,menarmrad,etc...*/) {
+            //描画コンテキストの取得
+				console.log('meninputchange');
+            var canvas = document.getElementById('menpicto');
+            if (canvas.getContext) {
+            var context = canvas.getContext('2d');
+            
+				console.log(menshoulder.value);
+                console.log(menarmrad.value);
+                console.log(menwaist.value);		
+                console.log(menlegs.value);	
+                console.log(menarmlenghth.value);
+
+				context.clearRect(0, 0, 800, 820);
+            //頭
+            context.beginPath();
+            context.arc(420,98,50,2 * Math.PI, false);
+            context.fill();
+            //左肩    
+            context.beginPath();
+            context.arc(351-menshoulder.value,190,13,2 * Math.PI, false);
+            context.fill();
+            //中央肩
+            context.beginPath();
+            context.arc(420,190,14,2 * Math.PI, false);
+            context.fill();
+            //右肩    
+            context.beginPath();
+            context.arc(489-(-menshoulder.value),190,13,2 * Math.PI, false);
+            context.fill();
+            //左腕    
+            context.beginPath();
+            context.arc((351-menshoulder.value)+(menarmlenghth.value)*(-79.5-menarmrad.value-(-menshoulder.value))*(Math.cos((menarmrad.value)*(Math.PI/180)))-249*(menarmlenghth.value)*(Math.sin((menarmrad.value)*(Math.PI/180))),190+(menarmlenghth.value)*(-79.5-menarmrad.value-(-menshoulder.value))*(Math.sin((menarmrad.value)*(Math.PI/180)))+249*(menarmlenghth.value)*(Math.cos((menarmrad.value)*(Math.PI/180))),13,2 * Math.PI, false);
+            context.fill();
+            //右腕    
+            context.beginPath();
+            context.arc(489-(-menshoulder.value)+(menarmlenghth.value)*(79.5-(-menarmrad.value)-menshoulder.value)*(Math.cos((-menarmrad.value)*(Math.PI/180)))-249*(menarmlenghth.value)*(Math.sin((-menarmrad.value)*(Math.PI/180))),190+(menarmlenghth.value)*(79.5-(-menarmrad.value)-menshoulder.value)*(Math.sin((-menarmrad.value)*(Math.PI/180)))+249*(menarmlenghth.value)*(Math.cos((-menarmrad.value)*(Math.PI/180))),13,2 * Math.PI, false);
+            context.fill();
+            //左腰　    
+            context.beginPath();
+            context.arc(352-menwaist.value,389,13,2 * Math.PI, false);
+            context.fill();
+            //中央腰　    
+            context.beginPath();
+            context.arc(420,389,13,2 * Math.PI, false);
+            context.fill();   
+            //右腰　    
+            context.beginPath();
+            context.arc(488-(-menwaist.value),389,13,2 * Math.PI, false);
+            context.fill();                     
+            //左足　    
+            context.beginPath();
+            context.arc(330-menlegs.value,778,13,2 * Math.PI, false);
+            context.fill();   
+            //右足　    
+            context.beginPath();
+            context.arc(510-(-menlegs.value),778,13,2 * Math.PI, false);
+            context.fill();               
+
+             //肩線   
+            context.beginPath();
+            context.moveTo(351-menshoulder.value,190);
+            context.lineTo(420,190);
+            context.lineWidth = 5 ;
+            context.stroke();
+             //肩線   
+            context.beginPath();
+            context.moveTo(420,190);
+            context.lineTo(489-(-menshoulder.value),190);
+            context.lineWidth = 5 ;
+            context.stroke();
+             //左腕線   
+             context.beginPath();
+            context.moveTo(351-menshoulder.value,190);
+            context.lineTo((351-menshoulder.value)+(menarmlenghth.value)*(-79.5-menarmrad.value-(-menshoulder.value))*(Math.cos((menarmrad.value)*(Math.PI/180)))-249*(menarmlenghth.value)*(Math.sin((menarmrad.value)*(Math.PI/180))),190+(menarmlenghth.value)*(-79.5-menarmrad.value-(-menshoulder.value))*(Math.sin((menarmrad.value)*(Math.PI/180)))+249*(menarmlenghth.value)*(Math.cos((menarmrad.value)*(Math.PI/180))));
+            context.lineWidth = 5 ;
+            context.stroke();    
+             //右腕線   
+            context.beginPath();
+            context.moveTo(489-(-menshoulder.value),190);
+            context.lineTo(489-(-menshoulder.value)+(menarmlenghth.value)*(79.5-(-menarmrad.value)-menshoulder.value)*(Math.cos((-menarmrad.value)*(Math.PI/180)))-249*(menarmlenghth.value)*(Math.sin((-menarmrad.value)*(Math.PI/180))),190+(menarmlenghth.value)*(79.5-(-menarmrad.value)-menshoulder.value)*(Math.sin((-menarmrad.value)*(Math.PI/180)))+249*(menarmlenghth.value)*(Math.cos((-menarmrad.value)*(Math.PI/180))));
+            context.lineWidth = 5 ;
+            context.stroke();    
+             //中央線   
+             context.beginPath();
+            context.moveTo(420,190);
+            context.lineTo(420,389);
+            context.lineWidth = 5 ;
+            context.stroke();              
+             //左腰線   
+            context.beginPath();
+            context.moveTo(420,389);
+            context.lineTo(352-menwaist.value,389);
+            context.lineWidth = 5 ;
+            context.stroke();               
+             //右腰線   
+             context.beginPath();
+            context.moveTo(420,389);
+            context.lineTo(488-(-menwaist.value),389);
+            context.lineWidth = 5 ;
+            context.stroke();          
+             //左足線   
+            context.beginPath();
+            context.moveTo(352-menwaist.value,389);
+            context.lineTo(330-menlegs.value,778);
+            context.lineWidth = 5 ;
+            context.stroke();                  
+             //右足線   
+             context.beginPath();
+            context.moveTo(488-(-menwaist.value),389);
+            context.lineTo(510-(-menlegs.value),778);
+            context.lineWidth = 5 ;
+            context.stroke();                   
+            }
+            }
+            //-->
+ 
+
+             function womaninputChange(/*canpasid,shouluder,menarmrad,etc...*/) {
+            //描画コンテキストの取得
+				console.log('womaninputchange');
+            var canvas = document.getElementById('womanpicto');
+            if (canvas.getContext) {
+            var context = canvas.getContext('2d');
+            
+				console.log(womanshoulder.value);
+                console.log(womanarmrad.value);
+                console.log(womanwaist.value);		
+                console.log(womanlegs.value);	
+                console.log(womanarmlenghth.value);
+
+				context.clearRect(0, 0, 800, 820);
+            //頭
+            context.beginPath();
+            context.arc(420,98,50,2 * Math.PI, false);
+            context.fill();
+            //左肩    
+            context.beginPath();
+            context.arc(351-womanshoulder.value,190,13,2 * Math.PI, false);
+            context.fill();
+            //中央肩
+            context.beginPath();
+            context.arc(420,190,14,2 * Math.PI, false);
+            context.fill();
+            //右肩    
+            context.beginPath();
+            context.arc(489-(-womanshoulder.value),190,13,2 * Math.PI, false);
+            context.fill();
+            //左腕    
+            context.beginPath();
+            context.arc((351-womanshoulder.value)+(womanarmlenghth.value)*(-79.5-womanarmrad.value-(-womanshoulder.value))*(Math.cos((womanarmrad.value)*(Math.PI/180)))-249*(womanarmlenghth.value)*(Math.sin((womanarmrad.value)*(Math.PI/180))),190+(womanarmlenghth.value)*(-79.5-womanarmrad.value-(-womanshoulder.value))*(Math.sin((womanarmrad.value)*(Math.PI/180)))+249*(womanarmlenghth.value)*(Math.cos((womanarmrad.value)*(Math.PI/180))),13,2 * Math.PI, false);
+            context.fill();
+            //右腕    
+            context.beginPath();
+            context.arc(489-(-womanshoulder.value)+(womanarmlenghth.value)*(79.5-(-womanarmrad.value)-womanshoulder.value)*(Math.cos((-womanarmrad.value)*(Math.PI/180)))-249*(womanarmlenghth.value)*(Math.sin((-womanarmrad.value)*(Math.PI/180))),190+(womanarmlenghth.value)*(79.5-(-womanarmrad.value)-womanshoulder.value)*(Math.sin((-womanarmrad.value)*(Math.PI/180)))+249*(womanarmlenghth.value)*(Math.cos((-womanarmrad.value)*(Math.PI/180))),13,2 * Math.PI, false);
+            context.fill();
+            //左腰　    
+            context.beginPath();
+            context.arc(352-womanwaist.value,389,13,2 * Math.PI, false);
+            context.fill();
+            //中央腰　    
+            context.beginPath();
+            context.arc(420,389,13,2 * Math.PI, false);
+            context.fill();   
+            //右腰　    
+            context.beginPath();
+            context.arc(488-(-womanwaist.value),389,13,2 * Math.PI, false);
+            context.fill();                     
+            //左足　    
+            context.beginPath();
+            context.arc(330-womanlegs.value,778,13,2 * Math.PI, false);
+            context.fill();   
+            //右足　    
+            context.beginPath();
+            context.arc(510-(-womanlegs.value),778,13,2 * Math.PI, false);
+            context.fill();               
+
+             //肩線   
+            context.beginPath();
+            context.moveTo(351-womanshoulder.value,190);
+            context.lineTo(420,190);
+            context.lineWidth = 5 ;
+            context.stroke();
+             //肩線   
+            context.beginPath();
+            context.moveTo(420,190);
+            context.lineTo(489-(-womanshoulder.value),190);
+            context.lineWidth = 5 ;
+            context.stroke();
+             //左腕線   
+             context.beginPath();
+            context.moveTo(351-womanshoulder.value,190);
+            context.lineTo((351-womanshoulder.value)+(womanarmlenghth.value)*(-79.5-womanarmrad.value-(-womanshoulder.value))*(Math.cos((womanarmrad.value)*(Math.PI/180)))-249*(womanarmlenghth.value)*(Math.sin((womanarmrad.value)*(Math.PI/180))),190+(womanarmlenghth.value)*(-79.5-womanarmrad.value-(-womanshoulder.value))*(Math.sin((womanarmrad.value)*(Math.PI/180)))+249*(womanarmlenghth.value)*(Math.cos((womanarmrad.value)*(Math.PI/180))));
+            context.lineWidth = 5 ;
+            context.stroke();    
+             //右腕線   
+            context.beginPath();
+            context.moveTo(489-(-womanshoulder.value),190);
+            context.lineTo(489-(-womanshoulder.value)+(womanarmlenghth.value)*(79.5-(-womanarmrad.value)-womanshoulder.value)*(Math.cos((-womanarmrad.value)*(Math.PI/180)))-249*(womanarmlenghth.value)*(Math.sin((-womanarmrad.value)*(Math.PI/180))),190+(womanarmlenghth.value)*(79.5-(-womanarmrad.value)-womanshoulder.value)*(Math.sin((-womanarmrad.value)*(Math.PI/180)))+249*(womanarmlenghth.value)*(Math.cos((-womanarmrad.value)*(Math.PI/180))));
+            context.lineWidth = 5 ;
+            context.stroke();    
+             //中央線   
+             context.beginPath();
+            context.moveTo(420,190);
+            context.lineTo(420,389);
+            context.lineWidth = 5 ;
+            context.stroke();              
+             //左腰線   
+            context.beginPath();
+            context.moveTo(420,389);
+            context.lineTo(352-womanwaist.value,389);
+            context.lineWidth = 5 ;
+            context.stroke();               
+             //右腰線   
+             context.beginPath();
+            context.moveTo(420,389);
+            context.lineTo(488-(-womanwaist.value),389);
+            context.lineWidth = 5 ;
+            context.stroke();          
+             //左足線   
+            context.beginPath();
+            context.moveTo(352-womanwaist.value,389);
+            context.lineTo(330-womanlegs.value,778);
+            context.lineWidth = 5 ;
+            context.stroke();                  
+             //右足線   
+             context.beginPath();
+            context.moveTo(488-(-womanwaist.value),389);
+            context.lineTo(510-(-womanlegs.value),778);
+            context.lineWidth = 5 ;
+            context.stroke();                   
+            }
+            }
+            //-->
+
+             function neutralinputChange(/*canpasid,shouluder,menarmrad,etc...*/) {
+            //描画コンテキストの取得
+				console.log('neutralinputchange');
+            var canvas = document.getElementById('neutralpicto');
+            if (canvas.getContext) {
+            var context = canvas.getContext('2d');
+            
+				console.log(neutralshoulder.value);
+                console.log(neutralarmrad.value);
+                console.log(neutralwaist.value);		
+                console.log(neutrallegs.value);	
+                console.log(neutralarmlenghth.value);
+
+				context.clearRect(0, 0, 800, 820);
+            //頭
+            context.beginPath();
+            context.arc(420,98,50,2 * Math.PI, false);
+            context.fill();
+            //左肩    
+            context.beginPath();
+            context.arc(351-neutralshoulder.value,190,13,2 * Math.PI, false);
+            context.fill();
+            //中央肩
+            context.beginPath();
+            context.arc(420,190,14,2 * Math.PI, false);
+            context.fill();
+            //右肩    
+            context.beginPath();
+            context.arc(489-(-neutralshoulder.value),190,13,2 * Math.PI, false);
+            context.fill();
+            //左腕    
+            context.beginPath();
+            context.arc((351-neutralshoulder.value)+(neutralarmlenghth.value)*(-79.5-neutralarmrad.value-(-neutralshoulder.value))*(Math.cos((neutralarmrad.value)*(Math.PI/180)))-249*(neutralarmlenghth.value)*(Math.sin((neutralarmrad.value)*(Math.PI/180))),190+(neutralarmlenghth.value)*(-79.5-neutralarmrad.value-(-neutralshoulder.value))*(Math.sin((neutralarmrad.value)*(Math.PI/180)))+249*(neutralarmlenghth.value)*(Math.cos((neutralarmrad.value)*(Math.PI/180))),13,2 * Math.PI, false);
+            context.fill();
+            //右腕    
+            context.beginPath();
+            context.arc(489-(-neutralshoulder.value)+(neutralarmlenghth.value)*(79.5-(-neutralarmrad.value)-neutralshoulder.value)*(Math.cos((-neutralarmrad.value)*(Math.PI/180)))-249*(neutralarmlenghth.value)*(Math.sin((-neutralarmrad.value)*(Math.PI/180))),190+(neutralarmlenghth.value)*(79.5-(-neutralarmrad.value)-neutralshoulder.value)*(Math.sin((-neutralarmrad.value)*(Math.PI/180)))+249*(neutralarmlenghth.value)*(Math.cos((-neutralarmrad.value)*(Math.PI/180))),13,2 * Math.PI, false);
+            context.fill();
+            //左腰　    
+            context.beginPath();
+            context.arc(352-neutralwaist.value,389,13,2 * Math.PI, false);
+            context.fill();
+            //中央腰　    
+            context.beginPath();
+            context.arc(420,389,13,2 * Math.PI, false);
+            context.fill();   
+            //右腰　    
+            context.beginPath();
+            context.arc(488-(-neutralwaist.value),389,13,2 * Math.PI, false);
+            context.fill();                     
+            //左足　    
+            context.beginPath();
+            context.arc(330-neutrallegs.value,778,13,2 * Math.PI, false);
+            context.fill();   
+            //右足　    
+            context.beginPath();
+            context.arc(510-(-neutrallegs.value),778,13,2 * Math.PI, false);
+            context.fill();               
+
+             //肩線   
+            context.beginPath();
+            context.moveTo(351-neutralshoulder.value,190);
+            context.lineTo(420,190);
+            context.lineWidth = 5 ;
+            context.stroke();
+             //肩線   
+            context.beginPath();
+            context.moveTo(420,190);
+            context.lineTo(489-(-neutralshoulder.value),190);
+            context.lineWidth = 5 ;
+            context.stroke();
+             //左腕線   
+             context.beginPath();
+            context.moveTo(351-neutralshoulder.value,190);
+            context.lineTo((351-neutralshoulder.value)+(neutralarmlenghth.value)*(-79.5-neutralarmrad.value-(-neutralshoulder.value))*(Math.cos((neutralarmrad.value)*(Math.PI/180)))-249*(neutralarmlenghth.value)*(Math.sin((neutralarmrad.value)*(Math.PI/180))),190+(neutralarmlenghth.value)*(-79.5-neutralarmrad.value-(-neutralshoulder.value))*(Math.sin((neutralarmrad.value)*(Math.PI/180)))+249*(neutralarmlenghth.value)*(Math.cos((neutralarmrad.value)*(Math.PI/180))));
+            context.lineWidth = 5 ;
+            context.stroke();    
+             //右腕線   
+            context.beginPath();
+            context.moveTo(489-(-neutralshoulder.value),190);
+            context.lineTo(489-(-neutralshoulder.value)+(neutralarmlenghth.value)*(79.5-(-neutralarmrad.value)-neutralshoulder.value)*(Math.cos((-neutralarmrad.value)*(Math.PI/180)))-249*(neutralarmlenghth.value)*(Math.sin((-neutralarmrad.value)*(Math.PI/180))),190+(neutralarmlenghth.value)*(79.5-(-neutralarmrad.value)-neutralshoulder.value)*(Math.sin((-neutralarmrad.value)*(Math.PI/180)))+249*(neutralarmlenghth.value)*(Math.cos((-neutralarmrad.value)*(Math.PI/180))));
+            context.lineWidth = 5 ;
+            context.stroke();    
+             //中央線   
+             context.beginPath();
+            context.moveTo(420,190);
+            context.lineTo(420,389);
+            context.lineWidth = 5 ;
+            context.stroke();              
+             //左腰線   
+            context.beginPath();
+            context.moveTo(420,389);
+            context.lineTo(352-neutralwaist.value,389);
+            context.lineWidth = 5 ;
+            context.stroke();               
+             //右腰線   
+             context.beginPath();
+            context.moveTo(420,389);
+            context.lineTo(488-(-neutralwaist.value),389);
+            context.lineWidth = 5 ;
+            context.stroke();          
+             //左足線   
+            context.beginPath();
+            context.moveTo(352-neutralwaist.value,389);
+            context.lineTo(330-neutrallegs.value,778);
+            context.lineWidth = 5 ;
+            context.stroke();                  
+             //右足線   
+             context.beginPath();
+            context.moveTo(488-(-neutralwaist.value),389);
+            context.lineTo(510-(-neutrallegs.value),778);
+            context.lineWidth = 5 ;
+            context.stroke();                   
+            }
+            }
+            //-->
+            
+            </script>
+            </div>
+        </body>
+</html>
